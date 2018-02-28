@@ -6,8 +6,9 @@ html class="no-js" lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta name="robots" content="NOODP,NOYDIR"
+    link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"
 
-    = display_meta_tags site: "RailsBase", keywords: %w(title site)
+    = display_meta_tags site: "nrbauto", keywords: %w(title site)
     = csrf_meta_tags
 
     = stylesheet_link_tag :application
@@ -17,13 +18,7 @@ html class="no-js" lang="en"
     == analytics_init if GoogleAnalytics.valid_tracker?
 
   body
-    = render "navigation"
-    = render "messages"
-
-    main.container
-      = yield
-
-    = render "footer"
+    = yield
 
     javascript:
       App.currentUserData = #{{current_user.to_json}};
