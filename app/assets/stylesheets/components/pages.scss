@@ -1,0 +1,25 @@
+.developing {
+  text-align: center;
+  font-weight: bold;
+  font-family: Calibri,serif;
+
+  .title {
+    font-size: 20pt;
+  }
+
+  .information {
+    text-align:left;
+    width:50%;
+    margin: auto;
+  }
+}
+
+.dev-footer {
+  position: fixed;
+  text-align: center;
+  border-top: 1px solid;
+  width: 100%;
+  bottom:0px;
+  background-color: #fff;
+  padding: 10px;
+}
