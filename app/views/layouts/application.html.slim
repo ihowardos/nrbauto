@@ -18,7 +18,13 @@ html class="no-js" lang="en"
     == analytics_init if GoogleAnalytics.valid_tracker?
 
   body
-    = yield
+    = render "navigation"
+
+    .page-wrapper
+      = yield
+      .page-buffer
+
+    = render "footer"
 
     javascript:
       App.currentUserData = #{{current_user.to_json}};

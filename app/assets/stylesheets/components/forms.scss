@@ -1,15 +1,15 @@
-.error {
-  label {
-    color: $form-label-color-invalid;
-  }
-
-  input,
-  textarea,
-  select {
-    @include form-input-error;
-  }
-
-  .error {
-    @include form-error;
-  }
-}
+// .error {
+//   label {
+//     color: $form-label-color-invalid;
+//   }
+//
+//   input,
+//   textarea,
+//   select {
+//     @include form-input-error;
+//   }
+//
+//   .error {
+//     @include form-error;
+//   }
+// }

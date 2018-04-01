@@ -1,0 +1,7 @@
+= simple_form_for article do |f|
+  = f.input :title
+  = f.input :text, as: :text
+  = f.input :date, as: :datetime
+  = f.input :image, as: :file
+
+  = f.button :submit

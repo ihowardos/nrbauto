@@ -1,7 +1,10 @@
-.title-bar data-hide-for="medium" data-responsive-toggle="navigation_menu"
-  button.menu-icon data-toggle="" type="button"
-  title-bar-title Menu
-
-nav.top-bar#navigation_menu
-  = render "navigation_main"
-  = render "navigation_user"
+header.main-header
+  .container
+    .logotype
+       = link_to image_tag("/images/logo.png", alt: "NRB Auto"), root_path
+    nav.main-navigation
+      ul
+        li = active_link_to "Главная", root_path
+        li = active_link_to "Новости", articles_path
+        li = active_link_to "Наши продукты", products_path
+        li = active_link_to "Контакты"

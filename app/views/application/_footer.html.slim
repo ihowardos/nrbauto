@@ -1,3 +1,16 @@
-footer.row
-  .columns
-    p &copy; Flatstack #{Time.zone.today.year}
+footer.main-footer
+  .container.clearfix
+    .left-block
+      p
+        | ООО “НРБАвто”
+      p
+        | 423800, г. Набережные Челны, Производственный проезд, 45, оф. В333
+    .right-block
+      p
+        i.fa.fa-envelope aria-hidden="true"
+        |  email:
+        '
+        = mail_to "no-replay@mail.ru"
+      p
+        i.fa.fa-phone aria-hidden="true"
+        |  tel: +7(000)000-00-00
