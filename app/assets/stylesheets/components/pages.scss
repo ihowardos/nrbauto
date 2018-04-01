@@ -236,7 +236,7 @@ a:hover {
   background: none;
   margin-bottom: 0;
 
-  .active a {
+  a.active {
     color: #999;
     cursor: default;
     pointer-events: none;
@@ -273,18 +273,22 @@ a:hover {
   min-height: 150px;
 }
 
+.box-product .product-image .preview-image,
 .box-products .box-body .preview-image {
   display: block;
 }
 
+.box-product .product-image .focus-image,
 .box-products .focus-image {
   display: none;
 }
 
+.box-product .product-image:hover .preview-image,
 .box-products .box-body:hover .preview-image {
   display: none;
 }
 
+.box-product .product-image:hover .focus-image,
 .box-products .box-body:hover .focus-image {
   display: block;
 }
@@ -301,7 +305,7 @@ a:hover {
 }
 
 .product-image {
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .product-image img {

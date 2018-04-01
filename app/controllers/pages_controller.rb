@@ -4,7 +4,4 @@ class PagesController < ApplicationController
 
   def main
   end
-
-  def products
-  end
 end

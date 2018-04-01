@@ -1,0 +1,17 @@
+.container.bottom-box
+  ol.breadcrumb
+    li = active_link_to "Главная страница", root_path, active: :exclusive
+    li = active_link_to "Наши продукты", products_path, active: :exclusive
+
+  .col-md-3
+    = render "categories"
+  .col-md-9
+    - products.each do |product|
+      .col-md-4
+        .box.box-products.box-fix
+          h2.box-title = link_to product.title, product
+          .box-body
+            .preview-image
+              = image_tag product.images[0].url, alt: product.title
+            .focus-image
+              = image_tag product.images[1].url, alt: product.title

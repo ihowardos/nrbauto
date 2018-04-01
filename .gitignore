@@ -13,3 +13,4 @@ vendor/ruby
 .env
 .pryrc
 .cloud66
+public/uploads
