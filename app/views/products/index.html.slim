@@ -1,7 +1,14 @@
+- title("Наши продукты")
+
 .container.bottom-box
   ol.breadcrumb
     li = active_link_to "Главная страница", root_path, active: :exclusive
     li = active_link_to "Наши продукты", products_path, active: :exclusive
+    - if params[:category] && categories.include?(params[:category])
+      li = active_link_to categories[params[:category]], products_path, active: :exclusive
+    - else
+      li = active_link_to categories.first[1], products_path, active: :exclusive
+    = paginate products, window: 1, outer_window: 2
 
   .col-md-3
     = render "categories"
@@ -12,6 +19,6 @@
           h2.box-title = link_to product.title, product
           .box-body
             .preview-image
-              = image_tag product.images[0].url, alt: product.title
+              = image_tag product.preview_image, alt: product.title
             .focus-image
-              = image_tag product.images[1].url, alt: product.title
+              = image_tag product.focus_image, alt: product.title

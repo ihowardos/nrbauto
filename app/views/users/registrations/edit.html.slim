@@ -1,22 +1,18 @@
-.row
-  .columns
-    h2 = title("Edit #{current_user.full_name}")
+- title("Редактирование профиля")
 
-.row
-  .medium-5.columns
+.container
+  .col-md-4.col-md-offset-4
     = simple_form_for resource,
         as: resource_name,
         url: users_path,
-        html: { method: :put } do |f|
+        html: { method: :put, class: "form-horizontal" } do |f|
 
-      .form-inputs
-        = f.input :full_name, required: true, autofocus: true
-        = f.input :email, required: true
-        = f.input :password,
-            autocomplete: "off",
-            required: false
-        = f.input :password_confirmation,
-            required: false
-
-      .form-actions
-        = f.button :submit, "Сохранить"
+      = f.input :full_name, required: true, autofocus: true, input_html: { class: "form-control" }
+      = f.input :email, required: true, input_html: { class: "form-control" }
+      = f.input :password,
+          autocomplete: "off",
+          required: false,
+          input_html: { class: "form-control" }
+      = f.input :password_confirmation,
+          required: false, input_html: { class: "form-control" }
+      = f.button :submit, "Сохранить", class: "btn btn-default"
