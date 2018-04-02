@@ -6,9 +6,8 @@
 #
 #= require jquery2
 #= require jquery-ujs
-#= require foundation
+#= require bootstrap-sprockets
 #= require current_user
+#= require action
 #= require_tree ../templates
 #= require_tree .
-
-$(document).foundation()

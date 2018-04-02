@@ -1,27 +1,25 @@
-.row
-  .columns
-    h2 = title("Sign in")
+.container
+  .row
+    .columns
+      h2 = title("Вход в админ-панель")
 
-.row
-  .medium-5.columns
-    = simple_form_for resource,
-        as: resource_name,
-        url: session_path(resource_name) do |f|
+  .row
+    .medium-5.columns
+      = simple_form_for resource,
+          as: resource_name,
+          url: session_path(resource_name) do |f|
 
-      legend
-        | Enter your
-        '
-        strong Rails Base example site
-        '
-        | account
+        legend
+          | Введите
+          '
+          strong email
+          '  и
+          strong пароль
 
-      .form-inputs
-        = f.input :email, required: false, autofocus: true
-        = f.input :password, required: false
-        = f.input :remember_me, as: :boolean
+        .form-inputs
+          = f.input :email, required: false, autofocus: true
+          = f.input :password, required: false
+          = f.input :remember_me, as: :boolean, label: "Запомнить меня"
 
-      .form-actions
-        = f.button :submit, "Sign in"
-
-  .medium-5.medium-offset-1.columns.end
-    = render "users/shared/links"
+        .form-actions
+          = f.button :submit, "Войти"

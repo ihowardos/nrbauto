@@ -6,8 +6,9 @@ html class="no-js" lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta name="robots" content="NOODP,NOYDIR"
+    link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"
 
-    = display_meta_tags site: "RailsBase", keywords: %w(title site)
+    = display_meta_tags site: "nrbauto", keywords: %w(title site)
     = csrf_meta_tags
 
     = stylesheet_link_tag :application
@@ -18,10 +19,10 @@ html class="no-js" lang="en"
 
   body
     = render "navigation"
-    = render "messages"
 
-    main.container
+    .page-wrapper
       = yield
+      .page-buffer
 
     = render "footer"
 

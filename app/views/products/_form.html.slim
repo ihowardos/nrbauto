@@ -1,0 +1,9 @@
+= simple_form_for product do |f|
+  = f.input :title
+  = f.input :description, as: :text
+  = f.input :category, collection: categories, selected: categories.last
+  = f.input :compatibility_model, as: :text
+  = f.input :compatibility_oem, as: :text
+  = f.input :images, as: :file, input_html: { multiple: true }
+
+  = f.submit "Сохранить"

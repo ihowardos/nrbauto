@@ -7,9 +7,9 @@ gem "rails", "5.1.2"
 
 # assets
 gem "autoprefixer-rails"
+gem "bootstrap-sass"
 gem "coffee-rails"
-gem "foundation-icons-sass-rails"
-gem "foundation-rails"
+gem "font-awesome-rails"
 gem "mini_racer"
 gem "premailer-rails"
 gem "sass-rails", "~> 5.0.0", ">= 5.0.6"
@@ -28,6 +28,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "carrierwave"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
