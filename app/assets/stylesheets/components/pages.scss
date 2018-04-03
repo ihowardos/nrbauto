@@ -267,10 +267,11 @@ a:hover {
 
 .box-products img {
 	width: 100%;
+	max-height: 100%;
 }
 
 .box-products .box-body {
-  min-height: 150px;
+  height: 200px;
 }
 
 .box-product .product-image .preview-image,
@@ -305,6 +306,7 @@ a:hover {
 }
 
 .product-image {
+	padding: 0;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -330,4 +332,20 @@ a:hover {
 
 .box-information .box-body {
 	min-height: 200px;
+}
+
+.padding-box {
+	padding-bottom: 80px;
+}
+
+@media all and (max-width: 750px) {
+	.main-header .logotype {
+		margin-left: 10px;
+	}
+
+	.main-navigation a {
+		font-size: 14px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 }
