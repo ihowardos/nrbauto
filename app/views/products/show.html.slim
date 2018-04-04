@@ -1,8 +1,12 @@
+- title(product.title)
+
 .page-wrapper
   .container
     ol.breadcrumb
       li = active_link_to "Главная страница", root_path, active: :exclusive
       li = active_link_to "Наши продукты", products_path, active: :exclusive
+      li = active_link_to categories[product.category],
+        products_path(category: product.category), active: :exclusive
       li = active_link_to product.title, product_path, active: :exclusive
     .col-md-3
       = render "categories"
@@ -25,7 +29,7 @@
                 = product.compatibility_oem
           .col-md-5.product-image
             .preview-image
-              = image_tag product.images[0].url, alt: product.title
+              = image_tag product.preview_image, alt: product.title
             .focus-image
-              = image_tag product.images[1].url,
-                alt: product.title if product.images[1]
+              = image_tag product.focus_image,
+                alt: product.title

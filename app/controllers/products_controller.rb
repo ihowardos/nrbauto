@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
-  expose :categories, -> { Product.categories.values }
   expose_decorated :product
   expose_decorated :products, -> { fetch_products }
+  expose :categories, -> { Product.categories }
 
   def create
     product.save
@@ -31,6 +31,10 @@ class ProductsController < ApplicationController
   end
 
   def fetch_products
-    Product.all
+    FilterProductsByCategory.new(
+      Product.all,
+      category: params[:category],
+      page: params[:page]
+    ).all
   end
 end
