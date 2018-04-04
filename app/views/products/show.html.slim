@@ -1,35 +1,34 @@
 - title(product.title)
 
-.page-wrapper
-  .container
-    ol.breadcrumb
-      li = active_link_to "Главная страница", root_path, active: :exclusive
-      li = active_link_to "Наши продукты", products_path, active: :exclusive
-      li = active_link_to categories[product.category],
-        products_path(category: product.category), active: :exclusive
-      li = active_link_to product.title, product_path, active: :exclusive
-    .col-md-3
-      = render "categories"
-    .col-md-9
-      .box.box-product.box-fix
-        .box-body.clearfix
-          .col-md-7
-            h2.product-title
-              = product.title
-            .product-description
-              p
-                = product.description
-              p
-                b Совместима с моделями:
-                '
-                = product.compatibility_model
-              p
-                b Совместима с ОЕМ арт.:
-                '
-                = product.compatibility_oem
-          .col-md-5.product-image
-            .preview-image
-              = image_tag product.preview_image, alt: product.title
-            .focus-image
-              = image_tag product.focus_image,
-                alt: product.title
+.container.padding-box
+  ol.breadcrumb
+    li = active_link_to "Главная страница", root_path, active: :exclusive
+    li = active_link_to "Наши продукты", products_path, active: :exclusive
+    li = active_link_to categories[product.category],
+      products_path(category: product.category), active: :exclusive
+    li = active_link_to product.title, product_path, active: :exclusive
+  .col-md-3
+    = render "categories"
+  .col-md-9
+    .box.box-product.box-fix
+      .box-body.clearfix
+        .col-md-7
+          h2.product-title
+            = product.title
+          .product-description
+            p
+              = product.description
+            p
+              b Совместима с моделями:
+              '
+              = product.compatibility_model
+            p
+              b Совместима с ОЕМ арт.:
+              '
+              = product.compatibility_oem
+        .col-md-5.product-image
+          .preview-image
+            = image_tag product.preview_image, alt: product.title
+          .focus-image
+            = image_tag product.focus_image,
+              alt: product.title
