@@ -17,7 +17,6 @@
     ol.breadcrumb
       li = active_link_to "Главная страница", root_path, active: :exclusive
       li = active_link_to "Новости", articles_path, active: :exclusive
-
       = paginate articles, window: 1, outer_window: 2
     - articles.each do |article|
       .col-md-4
@@ -26,12 +25,11 @@
             .preview-image
               img[src="http://fah-ler.com//images/icerik/faaliyet_7317bc8842aec93eac0927e6c9d28051.jpg"]
             h2.news-title
-              = link_to article.title, "#show",
-                data: { url: article_path(article) }, class: "js-open-modal"
+              = article.title
             .description
-              = article.text
+              = article.truncated_text
           .box-footer.clearfix
             p.post-date
               | Дата публикации:
               '
-              = article.date_str
+              = article.created_at_str

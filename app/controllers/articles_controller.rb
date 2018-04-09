@@ -12,22 +12,22 @@ class ArticlesController < ApplicationController
   def create
     article.save
 
-    respond_with article
+    respond_with article, location: articles_path
   end
 
   def update
     article.update(article_params)
 
-    respond_with article
+    respond_with article, location: articles_path
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :text, :date, :image)
+    params.require(:article).permit(:title, :text, :image)
   end
 
   def fetch_articles
-    Article.all.page(params[:page]).per(10).order(date: :desc)
+    Article.all.page(params[:page]).per(10).order(created_at: :desc)
   end
 end

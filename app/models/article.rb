@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
 
-  validates :title, :text, :date, presence: true
+  validates :title, :text, presence: true
 end
