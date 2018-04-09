@@ -1,0 +1,37 @@
+#show.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close[type="button" data-dismiss="modal" aria-hidden="true"]
+          | ×
+        h4.modal-title
+      .modal-body.news-modal-box
+        .news-image
+        .content
+      .modal-footer
+        button.btn.btn-default[type="button" data-dismiss="modal"]
+          | Закрыть
+
+.page-wrapper.padding-box
+  .container
+    ol.breadcrumb
+      li = active_link_to "Главная страница", root_path, active: :exclusive
+      li = active_link_to "Новости", articles_path, active: :exclusive
+
+      = paginate articles, window: 1, outer_window: 2
+    - articles.each do |article|
+      .col-md-4
+        .box.box-news.box-fix
+          .box-body
+            .preview-image
+              img[src="http://fah-ler.com//images/icerik/faaliyet_7317bc8842aec93eac0927e6c9d28051.jpg"]
+            h2.news-title
+              = link_to article.title, "#show",
+                data: { url: article_path(article) }, class: "js-open-modal"
+            .description
+              = article.text
+          .box-footer.clearfix
+            p.post-date
+              | Дата публикации:
+              '
+              = article.date_str

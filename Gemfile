@@ -28,6 +28,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "active_model_serializers"
 gem "carrierwave"
 gem "decent_decoration"
 gem "decent_exposure"
