@@ -1,0 +1,23 @@
+- title("Админ панель")
+
+.container.article-box
+  = link_to "Добавить", new_admin_article_path
+  table.table.table-hover.table-bordered
+    thead
+      tr
+        th width="5%" ID
+        th width="20%" Название
+        th width="30%" Текст
+        th width="15%" Дата публикации
+        th width="10%"
+        th width="10%"
+    tbody
+      - articles.each do |article|
+        tr
+          td = article.id
+          td = article.title
+          td = article.admin_truncated_text
+          td = article.created_at_str
+          td = link_to "Редактировать", edit_admin_article_path(article)
+          td = link_to "Удалить", admin_article_path(article), method: :delete
+  = paginate articles, window: 1, outer_window: 2

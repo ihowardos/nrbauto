@@ -9,23 +9,7 @@ class ArticlesController < ApplicationController
     respond_with article, serializer: ArticleSerializer
   end
 
-  def create
-    article.save
-
-    respond_with article, location: articles_path
-  end
-
-  def update
-    article.update(article_params)
-
-    respond_with article, location: articles_path
-  end
-
   private
-
-  def article_params
-    params.require(:article).permit(:title, :text, :image)
-  end
 
   def fetch_articles
     Article.all.page(params[:page]).per(10).order(created_at: :desc)

@@ -8,4 +8,5 @@ header.main-header
         li = active_link_to "Новости", articles_path
         li = active_link_to "Наши продукты", products_path
         li = active_link_to "Контакты"
+        li = active_link_to "Админ-панель", admin_articles_path if current_user
         li = active_link_to "Выйти", destroy_user_session_path, method: :delete if current_user

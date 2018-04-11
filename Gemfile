@@ -28,6 +28,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "truncate_html"
 gem "active_model_serializers"
 gem "carrierwave"
 gem "ckeditor", github: "galetahub/ckeditor"
