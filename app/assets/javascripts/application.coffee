@@ -9,5 +9,6 @@
 #= require bootstrap-sprockets
 #= require current_user
 #= require action
+#= require ckeditor/init
 #= require_tree ../templates
 #= require_tree .

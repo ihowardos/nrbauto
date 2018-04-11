@@ -12,7 +12,7 @@
         button.btn.btn-default[type="button" data-dismiss="modal"]
           | Закрыть
 
-.page-wrapper.padding-box
+.padding-box
   .container
     ol.breadcrumb
       li = active_link_to "Главная страница", root_path, active: :exclusive
@@ -23,9 +23,9 @@
         .box.box-news.box-fix
           .box-body
             .preview-image
-              img[src="http://fah-ler.com//images/icerik/faaliyet_7317bc8842aec93eac0927e6c9d28051.jpg"]
+              = image_tag article.image_url
             h2.news-title
-              = article.title
+              strong = article.title
             .description
               = article.truncated_text
           .box-footer.clearfix

@@ -30,6 +30,8 @@ gem "slim"
 # all other gems
 gem "active_model_serializers"
 gem "carrierwave"
+gem "ckeditor", github: "galetahub/ckeditor"
+gem "mini_magick"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
