@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   devise_for :users, skip: %i(registrations)
 
   resources :articles, only: %i(index show)
-  resources :products
+  resources :products, only: %i(index show)
 
   namespace :admin do
     resources :articles
+    resources :products
   end
 
   as :user do

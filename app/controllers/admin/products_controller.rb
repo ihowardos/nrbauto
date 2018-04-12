@@ -9,13 +9,13 @@ module Admin
     def create
       product.save
 
-      respond_with product
+      respond_with product, location: admin_products_path
     end
 
     def update
       product.update(product_params)
 
-      respond_with product
+      respond_with product, location: admin_products_path
     end
 
     private

@@ -2,11 +2,19 @@ header.main-header
   .container
     .logotype
        = link_to image_tag("/images/logo.png", alt: "NRB Auto"), root_path
-    nav.main-navigation
-      ul
-        li = active_link_to "Главная", root_path
-        li = active_link_to "Новости", articles_path
-        li = active_link_to "Наши продукты", products_path
-        li = active_link_to "Контакты"
-        li = active_link_to "Админ-панель", admin_articles_path if current_user
-        li = active_link_to "Выйти", destroy_user_session_path, method: :delete if current_user
+    - if params[:controller].split("/").first == "admin"
+      nav.main-navigation
+        ul
+          li = active_link_to "Главная", root_path
+          li = active_link_to "Управление новостями", admin_articles_path
+          li = active_link_to "Управление продуктами", admin_products_path
+          li = active_link_to "Выйти", destroy_user_session_path, method: :delete
+    - else
+      nav.main-navigation
+        ul
+          li = active_link_to "Главная", root_path
+          li = active_link_to "Новости", articles_path
+          li = active_link_to "Наши продукты", products_path
+          li = active_link_to "Контакты"
+          li = active_link_to "Админ-панель", admin_articles_path if current_user
+          li = active_link_to "Выйти", destroy_user_session_path, method: :delete if current_user

@@ -1,0 +1,20 @@
+= simple_form_for [:admin, product] do |f|
+  .form-group
+    = f.input :title, autofocus: true, label: false,
+      input_html: { class: "form-control", placeholder: "Название продукта" }
+  .form-group
+    = f.input :description, as: :text, label: false,
+      input_html: { class: "form-control", placeholder: "Короткое описание продукта" }
+  .form-group
+    = f.input :compatibility_model, as: :text, label: false,
+      input_html: { class: "form-control", placeholder: "Совместимость с моделями" }
+  .form-group
+    = f.input :compatibility_oem, as: :text, label: false,
+      input_html: { class: "form-control", placeholder: "Совместимость с ОЕМ арт." }
+  .form-group
+    = f.input :category, collection: categories.values, selected: categories[:other],
+      label: "Категория", input_html: { class: "form-control" }
+  .form-group
+    = f.input :images, as: :file, label: false, input_html: { multiple: true }
+  .action
+    = f.submit "Сохранить", class: "btn btn-success"
