@@ -12,6 +12,6 @@ class ArticlesController < ApplicationController
   private
 
   def fetch_articles
-    Article.all.page(params[:page]).per(10).order(created_at: :desc)
+    Article.all.page(params[:page]).per(9).order(created_at: :desc)
   end
 end

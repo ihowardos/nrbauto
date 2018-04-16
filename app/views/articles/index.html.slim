@@ -12,25 +12,24 @@
         button.btn.btn-default[type="button" data-dismiss="modal"]
           | Закрыть
 
-.padding-box
-  .container
-    ol.breadcrumb
-      li = active_link_to "Главная страница", root_path, active: :exclusive
-      li = active_link_to "Новости", articles_path, active: :exclusive
-    .paginate
-      = paginate articles, window: 1, outer_window: 2
-    - articles.each do |article|
-      .col-md-4
-        .box.box-news.box-fix
-          .box-body
-            .preview-image
-              = image_tag article.image_url
-            h2.news-title
-              strong = article.title
-            .description
-              = article.truncated_text
-          .box-footer.clearfix
-            p.post-date
-              | Дата публикации:
-              '
-              = article.created_at_str
+.container.padding-box
+  ol.breadcrumb
+    li = active_link_to "Главная страница", root_path, active: :exclusive
+    li = active_link_to "Новости", articles_path, active: :exclusive
+  .paginate
+    = paginate articles, window: 1, outer_window: 2
+  - articles.each do |article|
+    .col-md-4
+      .box.box-news.box-fix
+        .box-body
+          .preview-image
+            = image_tag article.image_url
+          h2.news-title
+            strong = article.title
+          .description
+            = article.truncated_text
+        .box-footer.clearfix
+          p.post-date
+            | Дата публикации:
+            '
+            = article.created_at_str

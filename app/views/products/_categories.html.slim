@@ -4,4 +4,8 @@
   .box-body.box-filters
     ul
       - Product.categories.each do |key, value|
-        li = link_to value, products_path(category: key)
+        - if key == params[:category]
+          .active
+            li = link_to value, products_path(category: key)
+        - else
+          li = link_to value, products_path(category: key)

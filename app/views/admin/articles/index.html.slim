@@ -1,23 +1,34 @@
 - title("Админ панель")
 
-.container.resource-box
-  = link_to "Добавить", new_admin_article_path
-  table.table.table-hover.table-bordered
-    thead
-      tr
-        th width="5%" ID
-        th width="20%" Название
-        th width="30%" Текст
-        th width="15%" Дата публикации
-        th width="10%"
-        th width="10%"
-    tbody
-      - articles.each do |article|
+.container.content.padding-box
+  .col-md-3
+    .box
+      h2.box-title
+        | Управление
+      .box-body
+        ul.panel-navigation
+          li
+            = active_link_to "Управление новостями", admin_articles_path, active: :exclusive
+          li
+            = active_link_to "Управление продуктами", admin_products_path, active: :exclusive
+    = link_to "Добавить", new_admin_article_path, class: "button button-block"
+  .col-md-9
+    table.table.table-hover.table-bordered
+      thead
         tr
-          td = article.id
-          td = article.title
-          td = article.admin_truncated_text
-          td = article.created_at_str
-          td = link_to "Редактировать", edit_admin_article_path(article)
-          td = link_to "Удалить", admin_article_path(article), method: :delete
-  = paginate articles, window: 1, outer_window: 2
+          th width="5%" ID
+          th width="20%" Название
+          th width="30%" Текст
+          th width="15%" Дата публикации
+          th width="10%"
+          th width="10%"
+      tbody
+        - articles.each do |article|
+          tr
+            td = article.id
+            td = article.title
+            td = article.admin_truncated_text
+            td = article.created_at_str
+            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-edit"), edit_admin_article_path(article), class: "btn btn-primary"
+            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-trash"), admin_article_path(article), class: "btn btn-danger" ,method: :delete
+    = paginate articles, window: 1, outer_window: 2

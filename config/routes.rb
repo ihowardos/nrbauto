@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i(index show)
   resources :products, only: %i(index show)
+  resources :feedbacks, only: %i(index create)
 
   namespace :admin do
     resources :articles
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   get "/product", to: "pages#product"
   get "/products", to: "pages#products"
+  get "/contacts", to: "pages#contacts"
 
   root to: "pages#main"
 end
