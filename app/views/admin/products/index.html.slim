@@ -11,18 +11,17 @@
           = active_link_to "Управление новостями", admin_articles_path
         li
           = active_link_to "Управление продуктами", admin_products_path
-    = link_to "Добавить", new_admin_product_path, class: "button button-block"
+    = link_to "Добавить продукт", new_admin_product_path, class: "button text-center button-block"
   .col-md-9
     table.table.table-hover.table-bordered
       thead
         tr
           th width="10%" ID
           th width="10%" Название
-          th width="20%" Описание
+          th width="25%" Описание
           th width="20%" Совместимость с моделями
           th width="20%" Совместимость с ОЕМ
-          th width="10%"
-          th width="10%"
+          th width="15%" Управление
       tbody
         - products.each do |product|
           tr
@@ -31,6 +30,7 @@
             td = product.truncate_description
             td = product.truncate_compatibility_model
             td = product.truncate_compatibility_oem
-            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-edit"), edit_admin_product_path(product), class: "btn btn-primary"
-            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-trash"), admin_product_path(product), class: "btn btn-danger", method: :delete
+            td
+              = link_to content_tag(:i, "", :class => "glyphicon glyphicon-edit"), edit_admin_product_path(product), class: "btn btn-margin btn-primary"
+              = link_to content_tag(:i, "", :class => "glyphicon glyphicon-trash"), admin_product_path(product), class: "btn btn-margin btn-danger", method: :delete
     = paginate products, window: 1, outer_window: 2

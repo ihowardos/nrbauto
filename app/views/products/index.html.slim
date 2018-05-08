@@ -8,7 +8,6 @@
       li = active_link_to categories[params[:category]], products_path, active: :exclusive
     - else
       li = active_link_to categories.first[1], products_path, active: :exclusive
-    = paginate products, window: 1, outer_window: 2
 
   .col-md-3
     = render "categories"
@@ -22,3 +21,5 @@
               = image_tag product.preview_image, alt: product.title
             .focus-image
               = image_tag product.focus_image, alt: product.title
+  .col-md-12.text-center
+    = paginate products, window: 1, outer_window: 2

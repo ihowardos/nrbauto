@@ -1,6 +1,6 @@
 == paginator.render do
-  div.col-md-12
-    ul.pagination.fl_r
+  div.col-md-12.text-center
+    ul.pagination
       == first_page_tag unless current_page.first?
       - each_page do |page|
         - if page.left_outer? || page.right_outer? || page.inside_window?

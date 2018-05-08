@@ -11,17 +11,16 @@
             = active_link_to "Управление новостями", admin_articles_path, active: :exclusive
           li
             = active_link_to "Управление продуктами", admin_products_path, active: :exclusive
-    = link_to "Добавить", new_admin_article_path, class: "button button-block"
+    = link_to "Добавить новость", new_admin_article_path, class: "button text-center button-block"
   .col-md-9
     table.table.table-hover.table-bordered
       thead
         tr
           th width="5%" ID
           th width="20%" Название
-          th width="30%" Текст
+          th width="35%" Текст
           th width="15%" Дата публикации
-          th width="10%"
-          th width="10%"
+          th width="15%" Управление
       tbody
         - articles.each do |article|
           tr
@@ -29,6 +28,7 @@
             td = article.title
             td = article.admin_truncated_text
             td = article.created_at_str
-            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-edit"), edit_admin_article_path(article), class: "btn btn-primary"
-            td = link_to content_tag(:i, "", :class => "glyphicon glyphicon-trash"), admin_article_path(article), class: "btn btn-danger" ,method: :delete
+            td
+              = link_to content_tag(:i, "", :class => "glyphicon glyphicon-edit"), edit_admin_article_path(article), class: "btn btn-margin btn-primary"
+              = link_to content_tag(:i, "", :class => "glyphicon glyphicon-trash"), admin_article_path(article), class: "btn btn-margin btn-danger" ,method: :delete
     = paginate articles, window: 1, outer_window: 2

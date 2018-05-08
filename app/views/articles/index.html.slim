@@ -16,8 +16,7 @@
   ol.breadcrumb
     li = active_link_to "Главная страница", root_path, active: :exclusive
     li = active_link_to "Новости", articles_path, active: :exclusive
-  .paginate
-    = paginate articles, window: 1, outer_window: 2
+
   - articles.each do |article|
     .col-md-4
       .box.box-news.box-fix
@@ -33,3 +32,7 @@
             | Дата публикации:
             '
             = article.created_at_str
+
+  div.col-md-12.text-center
+    .paginate
+      = paginate articles, window: 1, outer_window: 2

@@ -1,6 +1,19 @@
 - title("Админ панель")
 
-.container
-  .col-md-6.col-md-offset-3.panel.panel-default.resource-box
+.container.content
+  .col-md-3
+    .box
+      h2.box-title
+        | Управление
+      .box-body
+        ul.panel-navigation
+          li
+            = active_link_to "Управление новостями", admin_articles_path, active: :exclusive
+          li
+            = active_link_to "Управление продуктами", admin_products_path, active: :exclusive
+
+  .col-md-9.panel.panel-default
     .resource-form
+      h2.form-title
+        | Добавление новости
       = render "form"
